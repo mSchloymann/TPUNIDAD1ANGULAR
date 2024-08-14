@@ -1,13 +1,27 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
+  imports: [FormsModule],
+  template: `
+  <main class="main">
+    <div class="content">
+
+      <h1>{{saludo}} {{nombre}}</h1>
+
+      <input 
+      [(ngModel)]="nombre"
+      type="text" 
+      placeholder="Escribe tu nombre"/>
+    </div>
+  </main> 
+   `,
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'proyect1';
+    saludo: string = "HOLA";
+    nombre: string = ""
 }
+
